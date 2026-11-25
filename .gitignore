@@ -3,3 +3,9 @@
 build
 checker
 abi-checker
+
+# PS5 Shell sandbox toolchain / intermediates (large downloads)
+.tools/
+ps5-android/work/
+__pycache__/
+*.pyc

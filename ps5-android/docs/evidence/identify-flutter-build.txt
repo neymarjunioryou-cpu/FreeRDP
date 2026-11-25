@@ -1,0 +1,34 @@
+evidence_id: ev_41e6a6c595d52fb8d1f31313598b19588eb2c0a0ac3e540e1ca586b57f6cb2e5
+subject:
+  name: PS5Shell-v1.0.apk
+  digest:
+    sha256: 4a58b83b37ff23a14c428a0f2a335b5491a0934704603dd019e14542e4a00b16
+  local_path: /home/user/FreeRDP/ps5-android/dist/PS5Shell-v1.0.apk
+  format: apk
+  architecture: null
+provider:
+  id: flutter
+  name: Flutter build identification
+  version: null
+analysis_profile: null
+predicate_type: rea.analysis
+operation: identify_flutter_build
+parameters:
+  path: /home/user/FreeRDP/ps5-android/dist/PS5Shell-v1.0.apk
+raw_result: null
+normalized_result:
+  target:
+    path: /home/user/FreeRDP/ps5-android/dist/PS5Shell-v1.0.apk
+    bytes: 91026
+    sha256: 4a58b83b37ff23a14c428a0f2a335b5491a0934704603dd019e14542e4a00b16
+  flutter_detected: false
+  abis: []
+  coverage: complete
+confidence: observed
+authority: shipped-artifact
+environment: null
+limitations[7]: The APK is read through an owned read-only snapshot; concurrent changes to the original cannot mix into this observation,The snapshot hash identifies a Dart SDK build only against an external mapping dataset; REA performs no lookup,"Release engine builds often carry no labeled Dart version string; absence is reported, not guessed",Engine build IDs come only from ELF-declared PT_NOTE/SHT_NOTE records; conflicting or incompletely examined notes preserve candidates and report partial coverage,The snapshot hash sits 20 bytes after each snapshot magic in the AOT payload; findings are observations of that layout,ELF header validity checks the supported header layout and declared table extents; identification does not resolve symbols or validate table contents,No lib/*/libapp.so was found; the target does not carry a Flutter AOT payload
+relationship_coverage: null
+locations[1]{kind,path}:
+  artifact-path,/home/user/FreeRDP/ps5-android/dist/PS5Shell-v1.0.apk
+evidence_links: []

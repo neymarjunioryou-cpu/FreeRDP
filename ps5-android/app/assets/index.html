@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#050b1c">
+<title>PS5 Shell</title>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ===================== BOOT ===================== -->
+  <section id="boot" class="boot">
+    <div class="boot-glow"></div>
+    <div class="boot-mark">
+      <div class="boot-glyph"><span>P</span><span class="s">5</span></div>
+      <div class="boot-title">PS5 SHELL</div>
+      <div class="boot-sub">COMMUNITY CONSOLE FRONT-END</div>
+    </div>
+    <div class="boot-bar"><i></i></div>
+    <div class="boot-note">Original project &middot; Not affiliated with Sony Interactive Entertainment</div>
+  </section>
+
+  <!-- ===================== AMBIENT ===================== -->
+  <div class="ambient" aria-hidden="true">
+    <div class="amb-orb a"></div><div class="amb-orb b"></div>
+    <div class="amb-grid"></div>
+  </div>
+
+  <!-- ===================== TOP BAR ===================== -->
+  <header id="topbar" class="topbar hidden">
+    <div class="tb-left">
+      <div class="brand"><span class="brand-glyph">P5</span><span class="brand-text">SHELL</span></div>
+      <div class="tb-tag">HOME</div>
+    </div>
+    <div class="tb-right">
+      <span class="tb-icon" title="Network">&#9708;</span>
+      <span class="tb-icon" title="Controller">&#9678;</span>
+      <span class="tb-battery"><i></i></span>
+      <span class="tb-clock" id="clock">--:--</span>
+      <button class="avatar" id="avatarBtn" aria-label="Profile">AR</button>
+    </div>
+  </header>
+
+  <!-- ===================== SCREENS ===================== -->
+  <main id="screens" class="screens hidden">
+
+    <!-- HOME -->
+    <section class="screen active" data-screen="home">
+      <div class="home-wrap">
+        <div class="home-hero">
+          <div class="hero-art" id="heroArt"><span class="hero-art-label">NEON DRIFT</span></div>
+          <div class="hero-info">
+            <div class="eyebrow">FEATURED &middot; BUNDLED DEMO</div>
+            <h1>Neon Drift</h1>
+            <p>A small, original HTML5 arcade game built to exercise every control
+               on the DualSense-style overlay. Move, aim, dash, boost and collect.</p>
+            <div class="hero-actions">
+              <button class="btn primary focusable" data-action="play">&#9654; PLAY</button>
+              <button class="btn ghost focusable" data-action="controls">CONTROLLER</button>
+            </div>
+            <div class="hero-meta"><span>1 PLAYER</span><span>OFFLINE</span><span>v1.0</span></div>
+          </div>
+        </div>
+
+        <div class="section-label">APPS &amp; SETTINGS</div>
+        <div class="card-row" id="cardRow">
+          <button class="tile focusable" data-action="play">
+            <span class="tile-ico">&#9654;</span><span class="tile-name">Neon Drift</span>
+            <span class="tile-sub">Play demo</span>
+          </button>
+          <button class="tile focusable" data-action="library">
+            <span class="tile-ico">&#9635;</span><span class="tile-name">Game Library</span>
+            <span class="tile-sub">1 title</span>
+          </button>
+          <button class="tile focusable" data-action="remote">
+            <span class="tile-ico">&#8614;</span><span class="tile-name">Remote Play</span>
+            <span class="tile-sub">Real PS5 guide</span>
+          </button>
+          <button class="tile focusable" data-action="controls">
+            <span class="tile-ico">&#127918;</span><span class="tile-name">Controller</span>
+            <span class="tile-sub">Test inputs</span>
+          </button>
+          <button class="tile focusable" data-action="settings">
+            <span class="tile-ico">&#9881;</span><span class="tile-name">Settings</span>
+            <span class="tile-sub">Tune controls</span>
+          </button>
+          <button class="tile focusable" data-action="about">
+            <span class="tile-ico">&#8505;</span><span class="tile-name">About</span>
+            <span class="tile-sub">Legal &amp; tech</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIBRARY -->
+    <section class="screen" data-screen="library">
+      <div class="page">
+        <div class="page-head"><button class="back focusable" data-action="back">&#8592;</button><h2>Game Library</h2><span class="page-count">1 INSTALLED</span></div>
+        <div class="lib-grid">
+          <button class="lib-card focusable" data-action="play">
+            <div class="lib-art"><span>NEON DRIFT</span></div>
+            <div class="lib-body"><b>Neon Drift</b><small>Original HTML5 demo &middot; bundled in assets</small></div>
+          </button>
+          <div class="lib-card add">
+            <div class="lib-art dashed">+</div>
+            <div class="lib-body"><b>Add your own game</b><small>Drop an HTML5 game into <code>app/assets/games/</code>, add a tile in <code>index.html</code>, rebuild the APK. See README.</small></div>
+          </div>
+        </div>
+        <div class="notice">
+          <b>About running PS5 games</b>
+          <p>PS5 titles are x86-64 binaries that are signed, encrypted and tied to the
+             console's custom AMD APU and OS. There is no PS5 emulator for Android, and
+             this project cannot execute PS5 game code. To play your own PS5 games on an
+             Android device, stream them from your console with a Remote Play client.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REMOTE PLAY -->
+    <section class="screen" data-screen="remote">
+      <div class="page">
+        <div class="page-head"><button class="back focusable" data-action="back">&#8592;</button><h2>Remote Play</h2><span class="page-count">OWN CONSOLE REQUIRED</span></div>
+        <div class="rp-grid">
+          <div class="rp-card">
+            <div class="rp-num">01</div><h3>Prepare your PS5</h3>
+            <p>On the console: <b>Settings &rarr; System &rarr; Remote Play</b>, enable it,
+               then <b>Settings &rarr; System &rarr; Remote Play &rarr; Link Device</b> to get
+               the 8-digit code. Keep the console on the same network (or set up port forwarding).</p>
+          </div>
+          <div class="rp-card">
+            <div class="rp-num">02</div><h3>Install an open-source client</h3>
+            <p><b>Chiaki-ng</b> is the actively maintained open-source PS4/PS5 Remote Play
+               client for Android. It implements the remote play protocol itself; this shell
+               deliberately does not bundle or copy that protocol code.</p>
+            <a class="ext" href="https://github.com/streetpea/chiaki-ng">github.com/streetpea/chiaki-ng &#8599;</a>
+            <a class="ext" href="https://github.com/streetpea/chiaki-ng/releases">Latest APK releases &#8599;</a>
+          </div>
+          <div class="rp-card">
+            <div class="rp-num">03</div><h3>Pair and play</h3>
+            <p>Enter your PSN account ID / registration code in the client, wake the console,
+               and pair a DualSense over Bluetooth. Use the Control Center here to tune the
+               overlay while you get familiar with the layout.</p>
+            <a class="ext" href="https://www.playstation.com/remote-play/">Official PS Remote Play &#8599;</a>
+          </div>
+        </div>
+        <div class="notice warn">
+          <b>Why this isn't a PS5 port</b>
+          <p>Reverse engineering PS5 system software or commercial game binaries would require
+             the encrypted firmware/game images, breaking DRM and circumventing platform
+             protections, and would still need an x86-64 + custom GPU emulator that does not
+             exist. Nothing from Sony's software is included here.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="screen" data-screen="settings">
+      <div class="page">
+        <div class="page-head"><button class="back focusable" data-action="back">&#8592;</button><h2>Settings</h2><span class="page-count">SAVED LOCALLY</span></div>
+        <div class="settings-grid">
+          <div class="set-group">
+            <h3>Controller overlay</h3>
+            <label class="set-row"><span>Size</span><input type="range" id="setScale" min="0.7" max="1.35" step="0.05"><output id="outScale">1.00&times;</output></label>
+            <label class="set-row"><span>Opacity</span><input type="range" id="setAlpha" min="0.35" max="1" step="0.05"><output id="outAlpha">90%</output></label>
+            <label class="set-row"><span>Stick sensitivity</span><input type="range" id="setSens" min="0.5" max="2" step="0.1"><output id="outSens">1.0&times;</output></label>
+            <label class="set-row toggle"><span>Left-handed layout</span><input type="checkbox" id="setLeft"><i></i></label>
+            <label class="set-row toggle"><span>Show live input (debug)</span><input type="checkbox" id="setDebug"><i></i></label>
+          </div>
+          <div class="set-group">
+            <h3>Feedback &amp; system</h3>
+            <label class="set-row toggle"><span>Haptics (vibration)</span><input type="checkbox" id="setHaptics"><i></i></label>
+            <label class="set-row toggle"><span>UI sounds</span><input type="checkbox" id="setSound"><i></i></label>
+            <label class="set-row toggle"><span>Boot animation</span><input type="checkbox" id="setBoot"><i></i></label>
+            <label class="set-row"><span>Accent</span>
+              <span class="swatches">
+                <button class="sw" data-accent="#4a9cff" style="--sw:#4a9cff"></button>
+                <button class="sw" data-accent="#8b5cf6" style="--sw:#8b5cf6"></button>
+                <button class="sw" data-accent="#22d3a7" style="--sw:#22d3a7"></button>
+                <button class="sw" data-accent="#ff6b8b" style="--sw:#ff6b8b"></button>
+              </span>
+            </label>
+            <div class="set-info" id="deviceInfo">Device info loading&hellip;</div>
+          </div>
+        </div>
+        <div class="notice">
+          <b>Tips</b>
+          <p>Tap <b>PS</b> on the overlay for the power menu, <b>Share</b> for the Control
+             Center, and <b>Touchpad</b> to show/hide the overlay. A paired Bluetooth
+             DualSense or generic gamepad also works: buttons arrive as Android key events
+             and sticks/triggers as motion axes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="screen" data-screen="about">
+      <div class="page">
+        <div class="page-head"><button class="back focusable" data-action="back">&#8592;</button><h2>About</h2><span class="page-count">v1.0</span></div>
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>PS5 Shell</h3>
+            <p>An original Android app that recreates the <i>feel</i> of a modern console:
+               boot splash, home screen, horizontal card row, Control Center, a full
+               DualSense-style touch controller with two sticks, d-pad, four face buttons,
+               L1/L2/R1/R2, touchpad, Share, Options, PS and Mute, plus hardware gamepad
+               input forwarding.</p>
+            <p>It ships with <b>Neon Drift</b>, a small HTML5 game so every control can be
+               tried immediately.</p>
+          </div>
+          <div class="about-card">
+            <h3>How it was built</h3>
+            <p>REA (Reverse Engineer Anything, <code>morluto/rea</code>) was installed and used
+               for the analysis pass. The FreeRDP Android client in this repo and Chiaki-ng's
+               Android touch-control code were read as reference for input mapping and
+               structure. Findings are in <code>docs/REVERSE_ENGINEERING.md</code>.</p>
+            <p>The APK is compiled offline: <code>aapt2</code> + <code>apktool/smali</code> +
+               <code>apksigner</code>, with no Gradle or Android Studio. See
+               <code>tools/build.py</code>.</p>
+          </div>
+          <div class="about-card legal">
+            <h3>Legal</h3>
+            <p><b>This is not a PlayStation 5 emulator and cannot run PS5 games.</b> It contains
+               no Sony firmware, SDK, game binaries, artwork, logos or trademarks. "PS5" is
+               used descriptively. All code and graphics here are original and MIT licensed.</p>
+            <p>PlayStation, PS5 and DualSense are trademarks of Sony Interactive Entertainment.
+               This project is not affiliated with, endorsed by, or sponsored by Sony.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTROLLER TEST -->
+    <section class="screen" data-screen="controls">
+      <div class="page">
+        <div class="page-head"><button class="back focusable" data-action="back">&#8592;</button><h2>Controller test</h2><span class="page-count">LIVE INPUT</span></div>
+        <p class="lede">Use the touch overlay below, a paired gamepad, or a keyboard
+           (WASD + IJKL). Every value updates live.</p>
+        <div class="diag">
+          <div class="diag-block"><h4>Left stick</h4><div class="bar"><i id="d-lx"></i></div><small id="t-lx">x 0.00</small><div class="bar"><i id="d-ly"></i></div><small id="t-ly">y 0.00</small></div>
+          <div class="diag-block"><h4>Right stick</h4><div class="bar"><i id="d-rx"></i></div><small id="t-rx">x 0.00</small><div class="bar"><i id="d-ry"></i></div><small id="t-ry">y 0.00</small></div>
+          <div class="diag-block"><h4>Triggers</h4><div class="bar"><i id="d-l2"></i></div><small id="t-l2">L2 0%</small><div class="bar"><i id="d-r2"></i></div><small id="t-r2">R2 0%</small></div>
+          <div class="diag-block"><h4>Buttons</h4><div class="chips" id="diagChips"><span class="empty">none pressed</span></div></div>
+        </div>
+        <button class="btn primary focusable" data-action="play">Try them in Neon Drift &#9654;</button>
+      </div>
+    </section>
+
+    <!-- GAME -->
+    <section class="screen game-screen" data-screen="game">
+      <canvas id="gameCanvas"></canvas>
+      <div class="game-hud">
+        <div class="hud-left"><span class="hud-label">SCORE</span><b id="hudScore">0</b></div>
+        <div class="hud-mid"><span class="hud-label">TIME</span><b id="hudTime">90</b><span class="hud-combo" id="hudCombo"></span></div>
+        <div class="hud-right"><span class="hud-label">SHIELD</span><b id="hudShield">100%</b></div>
+      </div>
+      <div class="game-overlay" id="gameOverlay">
+        <div class="go-card">
+          <h2 id="goTitle">NEON DRIFT</h2>
+          <p id="goText">Collect blue orbs. Dodge red drones. Left stick moves, right stick aims,
+             &#10005; dashes, R2 boosts, R1 fires, L1 shields, Options pauses.</p>
+          <button class="btn primary focusable" id="goStart" data-action="game-start">START</button>
+          <button class="btn ghost focusable" data-action="back">BACK TO HOME</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== CONTROL CENTER ===================== -->
+  <aside id="controlCenter" class="control-center" aria-hidden="true">
+    <div class="cc-head"><h3>Control Center</h3><button id="ccClose" aria-label="Close">&#10005;</button></div>
+    <div class="cc-grid">
+      <button class="cc-tile" data-cc="haptics"><span>&#9788;</span><small>Haptics</small></button>
+      <button class="cc-tile" data-cc="sound"><span>&#9835;</span><small>Sound</small></button>
+      <button class="cc-tile" data-cc="overlay"><span>&#127918;</span><small>Overlay</small></button>
+      <button class="cc-tile" data-cc="home"><span>&#8962;</span><small>Home</small></button>
+      <button class="cc-tile" data-cc="settings"><span>&#9881;</span><small>Settings</small></button>
+      <button class="cc-tile" data-cc="power"><span>&#9211;</span><small>Power</small></button>
+    </div>
+    <div class="cc-slider"><span>Brightness</span><input type="range" id="ccBrightness" min="0.25" max="1" step="0.05" value="1"><output id="ccBrightOut">100%</output></div>
+    <div class="cc-foot"><span id="ccNet">Wi-Fi &middot; connected</span><span id="ccRes">-- x --</span></div>
+  </aside>
+
+  <!-- ===================== POWER MENU ===================== -->
+  <div id="powerMenu" class="modal" aria-hidden="true">
+    <div class="modal-card">
+      <h3>Power</h3>
+      <button class="mm focusable" data-power="home">&#8962; Return to Home</button>
+      <button class="mm focusable" data-power="overlay">&#127918; Toggle controller overlay</button>
+      <button class="mm focusable" data-power="about">&#8505; About this app</button>
+      <button class="mm focusable" data-power="close">&#10005; Exit (system Back)</button>
+      <p class="mm-note">Android owns the app lifecycle: press the system Back / swipe gesture when WebView history is empty.</p>
+    </div>
+  </div>
+
+  <!-- ===================== VIRTUAL CONTROLLER ===================== -->
+  <div id="controller" class="controller hidden" aria-label="Virtual DualSense-style controller">
+    <div class="ctl-side ctl-left">
+      <div class="shoulders">
+        <div class="trigger" data-trigger="l2"><span>L2</span><i></i></div>
+        <button class="bumper" data-btn="l1"><span>L1</span></button>
+      </div>
+      <div class="dpad">
+        <button class="dp up" data-btn="up">&#9650;</button>
+        <button class="dp left" data-btn="left">&#9664;</button>
+        <span class="dp mid"></span>
+        <button class="dp right" data-btn="right">&#9654;</button>
+        <button class="dp down" data-btn="down">&#9660;</button>
+      </div>
+      <div class="stick" data-stick="left"><div class="knob"></div><small>L3</small></div>
+      <button class="mini" data-btn="share"><span>&#9635;</span><small>SHARE</small></button>
+    </div>
+
+    <div class="ctl-side ctl-center">
+      <div class="touchpad" id="touchpad"><div class="tp-dot"></div><span>TOUCHPAD</span></div>
+      <div class="center-btns">
+        <button class="mini" data-btn="mute"><span>&#9679;</span><small>MIC</small></button>
+        <button class="ps" data-btn="ps"><span>PS</span></button>
+        <button class="mini" data-btn="options"><span>&#9776;</span><small>OPTIONS</small></button>
+      </div>
+    </div>
+
+    <div class="ctl-side ctl-right">
+      <div class="shoulders">
+        <button class="bumper" data-btn="r1"><span>R1</span></button>
+        <div class="trigger" data-trigger="r2"><span>R2</span><i></i></div>
+      </div>
+      <div class="faces">
+        <button class="face tri" data-btn="triangle"><span>&#9651;</span></button>
+        <button class="face sq" data-btn="square"><span>&#9633;</span></button>
+        <button class="face cir" data-btn="circle"><span>&#9675;</span></button>
+        <button class="face cro" data-btn="cross"><span>&#10005;</span></button>
+      </div>
+      <div class="stick" data-stick="right"><div class="knob"></div><small>R3</small></div>
+      <button class="mini" data-btn="create"><span>&#9998;</span><small>CREATE</small></button>
+    </div>
+  </div>
+
+  <!-- ===================== TOAST / HINTS ===================== -->
+  <div id="toast" class="toast"></div>
+  <footer id="hints" class="hints hidden">
+    <span><b>&#9664;&#9654;</b> navigate</span>
+    <span><b>&#10005;</b> select</span>
+    <span><b>&#9675;</b> back</span>
+    <span><b>PS</b> power</span>
+    <span><b>SHARE</b> control center</span>
+  </footer>
+
+</div>
+
+<script src="js/controls.js"></script>
+<script src="js/game.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+schema: HistoricalSourceSummary
+authority: historical-reference
+root_alias: $REFERENCE_ROOT
+manifest:
+  schema: HistoricalSourceManifest
+  authority: historical-reference
+  manifest_id: hsm_10579fab44612365302cc78dfc0ba8ac119bbbaef5587775622fddf9f28cfec4
+  graph_sha256: 13ed85ccdf981f30cf54ea15ded5186a798e60162931dd525a0854f97a00f3cc
+  root_sha256: dcfea63cd9d49f52624ad73bfd9102b4a80406d43a28d7f7fb401ee3fbf13e25
+  inventory_state: partial
+  entry_count: 65
+  relationship_count: 0
+inventory_state: partial
+provenance:
+  importer: rea-agents
+  importer_version: 6.7.0
+  caller: rea-cli
+vcs:
+  kind: git
+  head: 43728af2e639fecb8a7af1cd68c29820a40de973
+  dirty: null
+languages[1]: Kotlin
+manifests: []
+counts:
+  entries: 65
+  files: 51
+  directories: 14
+  symlinks: 0
+  unknown: 0
+  relationships: 0
+  parse_failures: 0
+  exclusions: 0
+file_content_states:
+  hashed: 51
+  "redacted-secret": 0
+  excluded: 0
+  unreadable: 0
+  unknown: 0
+directory_tree_states:
+  enumerated: 14
+  partial: 0
+  excluded: 0
+  unreadable: 0
+  unknown: 0
+file_sizes:
+  known_bytes: "156714"
+  unknown_file_count: 0
+exclusions: []
+limitations[1]: "Path identity is revalidated around operations; Node lacks portable descriptor-relative openat traversal, so a syscall-boundary pathname race remains."
+outline:
+  depth: 2
+  entries[2]:
+    - path: com
+      classifications[1]: unknown
+      limitations: []
+      kind: directory
+      tree_state: enumerated
+    - path: com/metallic
+      classifications[1]: unknown
+      limitations: []
+      kind: directory
+      tree_state: enumerated
+  omitted_entry_count: 63
