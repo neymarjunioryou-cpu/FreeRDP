@@ -1,0 +1,42 @@
+REA analyze-javascript-application -- condensed evidence summary
+(full Evidence envelope omitted; regenerate with tools/rea-evidence.sh)
+
+evidence_id             : ev_258157adf4442de1e5f50b435fc8bf82166b3e632de64ae6763cbb1d11d36ce3
+operation               : analyze_javascript_application
+confidence / authority  : derived / shipped-artifact
+input_path              : /home/user/FreeRDP/ps5-android/app/assets
+format                  : directory
+root_artifact_sha256    : 6364f39a5245ed9cfe4e604ac5187447b750dbb990a6a8918104fb7a6b82f4fc
+inventory_manifest_id   : agm_88feb8c70fb1e4b567156bd98f2248e840be4e0972f3c9bab5f2c65966d3dfd4
+application graph_id    : jag_0d51fa6d222fc3e5b600f50ef11cfc204bfb83d246e35b6b9d43e568c1fc34d1
+semantic graph_id       : jsrg_acb4f1b0eb0de8580775e1d0b0024b7a9952f2369162d13ad430969e8e87d309
+integrity_contradictions: 0
+
+Statistics:
+  relevant_files               4
+  nested_asar_containers       0
+  text_bytes_read              63325
+  invalid_utf8_files           0
+  parsed_javascript_files      3
+  skipped_javascript_files     0
+  visited_ast_nodes            8977
+  findings                     12
+  modules                      0
+  parse_failures               0
+
+Application graph       : 16 nodes, 21 edges, coverage=complete
+Semantic graph          : 5815 nodes, 5141 relations, 127 fingerprints, 1851 unknowns
+  coverage status       : unknown
+  relation families     : boundary, call-flow, child-process, closure, configuration, data-flow, event, object-flow, promise-ownership, request, resource-lifecycle, timer
+
+Declared limitations (REA, verbatim):
+  - CommonJS and ESM binding relationships were recovered from inert syntax and resolved only within the inventoried artifact container.
+  - JavaScript and HTML were parsed as inert text; bundle bootstrap code was never executed.
+  - Static imports, entrypoints, workers, endpoints, and storage relationships do not prove runtime execution.
+  - Static paths and relationships may remain unresolved when expressions are dynamic or obfuscated.
+  - Webpack/Rspack factories were recovered from AST literals; REA did not invoke push handlers or bundle bootstrap code.
+
+Interpretation: REA parsed the three JS files and index.html as inert text.
+No CommonJS/ESM imports, no Electron preload/contextBridge, no IPC, no
+native addons and no network request constructors were found: the shell is
+a self-contained classic-script WebView app with zero external dependencies.

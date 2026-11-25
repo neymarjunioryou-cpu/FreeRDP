@@ -1,0 +1,69 @@
+APK sha256      : 4a58b83b37ff23a14c428a0f2a335b5491a0934704603dd019e14542e4a00b16
+package         : com.arena.ps5shell
+version         : 1.0 ( 1 )
+min/target sdk  : 24 / 34
+permissions     : android.permission.VIBRATE, android.permission.INTERNET, android.permission.ACCESS_NETWORK_STATE
+main activity   : com.arena.ps5shell.MainActivity
+app icon        : res/mipmap-xxxhdpi/ic_launcher.png
+
+CLASS Lcom/arena/ps5shell/MainActivity; super Landroid/app/Activity; access public
+  METHOD <init> ()V public constructor
+    instructions: 2 regs 1
+       invoke-direct v0, Landroid/app/Activity;-><init>()V
+       return-void 
+  METHOD appendAxis (Ljava/lang/StringBuilder; Landroid/view/MotionEvent; I)V private static
+    instructions: 6 regs 5
+       invoke-virtual v3, v4, Landroid/view/MotionEvent;->getAxisValue(I)F
+       move-result v0
+       invoke-virtual v2, v0, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+       const-string v1, ","
+       ...
+  METHOD js (Ljava/lang/String;)V private
+    instructions: 5 regs 5
+       iget-object v0, v3, Lcom/arena/ps5shell/MainActivity;->web Landroid/webkit/WebView;
+       if-eqz v0, +006h
+       const/4 v1, 0
+       invoke-virtual v0, v4, v1, Landroid/webkit/WebView;->evaluateJavascript(Ljava/lang/String; Landroid/webkit/ValueCal
+       ...
+  METHOD dispatchGenericMotionEvent (Landroid/view/MotionEvent;)Z public
+    instructions: 46 regs 10
+       invoke-virtual v9, Landroid/view/InputEvent;->getSource()I
+       move-result v0
+       const/16 v1, 1025
+       and-int v2, v0, v1
+       ...
+  METHOD dispatchKeyEvent (Landroid/view/KeyEvent;)Z public
+    instructions: 30 regs 10
+       invoke-virtual v9, Landroid/view/InputEvent;->getSource()I
+       move-result v0
+       const/16 v1, 1025
+       and-int v2, v0, v1
+       ...
+  METHOD onBackPressed ()V public
+    instructions: 9 regs 3
+       iget-object v0, v2, Lcom/arena/ps5shell/MainActivity;->web Landroid/webkit/WebView;
+       if-eqz v0, +00ch
+       invoke-virtual v0, Landroid/webkit/WebView;->canGoBack()Z
+       move-result v1
+       ...
+  METHOD onCreate (Landroid/os/Bundle;)V protected
+    instructions: 29 regs 7
+       invoke-super v5, v6, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
+       invoke-virtual v5, Landroid/app/Activity;->getWindow()Landroid/view/Window;
+       move-result-object v0
+       invoke-virtual v0, Landroid/view/Window;->getDecorView()Landroid/view/View;
+       ...
+  METHOD onPause ()V protected
+    instructions: 5 regs 2
+       invoke-super v1, Landroid/app/Activity;->onPause()V
+       iget-object v0, v1, Lcom/arena/ps5shell/MainActivity;->web Landroid/webkit/WebView;
+       if-eqz v0, +005h
+       invoke-virtual v0, Landroid/webkit/WebView;->onPause()V
+       ...
+  METHOD onResume ()V protected
+    instructions: 5 regs 2
+       invoke-super v1, Landroid/app/Activity;->onResume()V
+       iget-object v0, v1, Lcom/arena/ps5shell/MainActivity;->web Landroid/webkit/WebView;
+       if-eqz v0, +005h
+       invoke-virtual v0, Landroid/webkit/WebView;->onResume()V
+       ...

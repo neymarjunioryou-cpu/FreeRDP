@@ -1,0 +1,6 @@
+#!/bin/sh
+# REA_APKTOOL_COMMAND launcher: caller-supplied Apktool 2.9.3 + Java runtime.
+# Override JAVA / APKTOOL_JAR to use your own installation.
+JAVA="${JAVA:-/home/user/FreeRDP/.tools/jdk/jdk4py/java-runtime/bin/java}"
+APKTOOL_JAR="${APKTOOL_JAR:-/home/user/FreeRDP/.tools/buildtools/apktool-2.9.3.jar}"
+exec "$JAVA" -jar "$APKTOOL_JAR" "$@"

@@ -1,0 +1,23 @@
+evidence_id: ev_83392341687837db348b23c56bfbe3db223d5dcf30088eef1b0e1a0f08c20534
+subject: null
+provider:
+  id: apktool
+  name: Apktool
+  version: 2.9.3
+analysis_profile: null
+predicate_type: rea.analysis
+operation: inspect_apktool_client
+parameters:
+raw_result: null
+normalized_result:
+  client:
+    command: /home/user/FreeRDP/ps5-android/tools/apktool-launcher
+    command_source: environment
+    apktool_version: 2.9.3
+confidence: observed
+authority: shipped-artifact
+environment: null
+limitations[1]: Artifact identity is unavailable for this observation.
+relationship_coverage: null
+locations: []
+evidence_links: []

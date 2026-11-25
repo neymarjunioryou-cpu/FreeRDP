@@ -1,0 +1,64 @@
+name: 'PS5 Shell APK'
+
+# Reproducible CI build of ps5-android/dist/PS5Shell-v1.0.apk.
+# Uses a standard Android SDK (aapt2 + android.jar + apksigner) instead of the
+# offline bootstrap toolchain in ps5-android/tools/bootstrap.sh.
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'ps5-android/**'
+      - '.github/workflows/ps5-shell-apk.yml'
+  pull_request:
+    paths:
+      - 'ps5-android/**'
+      - '.github/workflows/ps5-shell-apk.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: 'Build PS5 Shell APK'
+    steps:
+      - name: 'Check out source'
+        uses: actions/checkout@v4
+
+      - name: 'Set up Java 17'
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: 'Set up Android SDK'
+        uses: android-actions/setup-android@v3
+
+      - name: 'Install platform + build-tools'
+        run: |
+          sdkmanager --install "platforms;android-34" "build-tools;34.0.0" > /dev/null
+          echo "ANDROID_HOME=${ANDROID_HOME:-$ANDROID_SDK_ROOT}" >> "$GITHUB_ENV"
+
+      - name: 'Get Apktool (smali assembler)'
+        run: |
+          curl -fsSL -o "$RUNNER_TEMP/apktool.jar" \
+            https://github.com/iBotPeaches/Apktool/releases/download/v2.9.3/apktool_2.9.3.jar \
+            || ( npm pack --silent --pack-destination "$RUNNER_TEMP" @postar/apktool-node@0.3.4 \
+                 && mkdir -p "$RUNNER_TEMP/apktool" \
+                 && tar xzf "$RUNNER_TEMP"/postar-apktool-node-*.tgz -C "$RUNNER_TEMP/apktool" \
+                 && cp "$RUNNER_TEMP/apktool/package/lib/apktool.jar" "$RUNNER_TEMP/apktool.jar" )
+
+      - name: 'Build and verify APK'
+        run: |
+          SDK="${ANDROID_HOME:-$ANDROID_SDK_ROOT}"
+          export JAVA="$JAVA_HOME/bin/java"
+          export KEYTOOL="$JAVA_HOME/bin/keytool"
+          export AAPT2="$SDK/build-tools/34.0.0/aapt2"
+          export APKSIGNER_JAR="$SDK/build-tools/34.0.0/lib/apksigner.jar"
+          export ANDROID_JAR="$SDK/platforms/android-34/android.jar"
+          export APKTOOL_JAR="$RUNNER_TEMP/apktool.jar"
+          python3 ps5-android/tools/build.py
+
+      - name: 'Upload APK'
+        uses: actions/upload-artifact@v4
+        with:
+          name: PS5Shell-apk
+          path: ps5-android/dist/*.apk
+          if-no-files-found: error

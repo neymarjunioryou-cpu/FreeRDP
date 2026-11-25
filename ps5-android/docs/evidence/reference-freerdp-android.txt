@@ -1,0 +1,153 @@
+schema: HistoricalSourceSummary
+authority: historical-reference
+root_alias: $REFERENCE_ROOT
+manifest:
+  schema: HistoricalSourceManifest
+  authority: historical-reference
+  manifest_id: hsm_ab0118afad2107714a63d44d84a041407115ff7333aaff426f7813468f268ca1
+  graph_sha256: 5cfaba7243063a89668fb22f8110c4b39a7ab2afd856ca854bdc63fa97ff82f0
+  root_sha256: 9bfcc2560dba22ec227b9524cd9a47fb4018a444b6493540572a5dfec7d7839b
+  inventory_state: partial
+  entry_count: 271
+  relationship_count: 0
+inventory_state: partial
+provenance:
+  importer: rea-agents
+  importer_version: 6.7.0
+  caller: rea-cli
+vcs:
+  kind: git
+  head: 6ba1b2da02fa560c2f8f0305d55e7d1d1730c0a2
+  dirty: null
+languages[6]: C,CSS,HTML,Java,Text,XML
+manifests[5]: aFreeRDP/build.gradle,build.gradle,freeRDPCore/build.gradle,freeRDPCore/src/main/cpp/CMakeLists.txt,settings.gradle
+counts:
+  entries: 271
+  files: 216
+  directories: 55
+  symlinks: 0
+  unknown: 0
+  relationships: 0
+  parse_failures: 0
+  exclusions: 0
+file_content_states:
+  hashed: 216
+  "redacted-secret": 0
+  excluded: 0
+  unreadable: 0
+  unknown: 0
+directory_tree_states:
+  enumerated: 55
+  partial: 0
+  excluded: 0
+  unreadable: 0
+  unknown: 0
+file_sizes:
+  known_bytes: "1618764"
+  unknown_file_count: 0
+exclusions: []
+limitations[1]: "Path identity is revalidated around operations; Node lacks portable descriptor-relative openat traversal, so a syscall-boundary pathname race remains."
+outline:
+  depth: 2
+  entries[16]:
+    - path: .gitignore
+      kind: file
+      language: null
+      size: 99
+      content_state: hashed
+      classifications[1]: config
+      limitations: []
+    - path: aFreeRDP
+      classifications[1]: unknown
+      limitations: []
+      kind: directory
+      tree_state: enumerated
+    - path: aFreeRDP/build.gradle
+      kind: file
+      language: null
+      size: 2188
+      content_state: hashed
+      classifications[1]: manifest
+      limitations: []
+    - path: aFreeRDP/lint.xml
+      kind: file
+      language: XML
+      size: 52
+      content_state: hashed
+      classifications[1]: unknown
+      limitations: []
+    - path: aFreeRDP/src
+      classifications[1]: source
+      limitations: []
+      kind: directory
+      tree_state: enumerated
+    - path: build.gradle
+      kind: file
+      language: null
+      size: 2251
+      content_state: hashed
+      classifications[1]: manifest
+      limitations: []
+    - path: freeRDPCore
+      classifications[1]: unknown
+      limitations: []
+      kind: directory
+      tree_state: enumerated
+    - path: freeRDPCore/build.gradle
+      kind: file
+      language: null
+      size: 2902
+      content_state: hashed
+      classifications[1]: manifest
+      limitations: []
+    - path: freeRDPCore/lint.xml
+      kind: file
+      language: XML
+      size: 52
+      content_state: hashed
+      classifications[1]: unknown
+      limitations: []
+    - path: freeRDPCore/src
+      classifications[1]: source
+      limitations: []
+      kind: directory
+      tree_state: enumerated
+    - path: gradle
+      classifications[1]: unknown
+      limitations: []
+      kind: directory
+      tree_state: enumerated
+    - path: gradle.properties
+      kind: file
+      language: null
+      size: 87
+      content_state: hashed
+      classifications[1]: unknown
+      limitations: []
+    - path: gradle/wrapper
+      classifications[1]: unknown
+      limitations: []
+      kind: directory
+      tree_state: enumerated
+    - path: gradlew
+      kind: file
+      language: null
+      size: 4971
+      content_state: hashed
+      classifications[1]: unknown
+      limitations: []
+    - path: gradlew.bat
+      kind: file
+      language: null
+      size: 2404
+      content_state: hashed
+      classifications[1]: unknown
+      limitations: []
+    - path: settings.gradle
+      kind: file
+      language: null
+      size: 43
+      content_state: hashed
+      classifications[1]: manifest
+      limitations: []
+  omitted_entry_count: 255
